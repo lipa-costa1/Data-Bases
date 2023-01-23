@@ -1,0 +1,36 @@
+<doctype html>
+<title>Lista das instituições</title>
+<body style="padding:20px">
+  {% if cursor %}
+    <h1>Lista das instituições</h1>
+    <p><a href="instituicao/insert">Inserir nova instituição</a>
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Região</th>
+          <th>Concelho</th>
+          <th>Editar</th>
+          <th>Remover</th>
+        </tr>
+      </thead>
+      <tbody>      
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] }}</td>
+            <td><a href="instituicao/update?nome={{ record[0] }}">Alterar informações</a></td>
+            <td><a href="instituicao/delete/confirm?nome={{ record[0] }}">Remover Instituição</a></td>
+          </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+  {% endif %}
+</body>
+</doctype>

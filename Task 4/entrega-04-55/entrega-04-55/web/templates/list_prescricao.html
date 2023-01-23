@@ -1,0 +1,25 @@
+<doctype html>
+<title>Lista de substâncias</title>
+<body style="padding:20px">
+<!--Adicionar titulo e nome medico-->
+<h2>Lista de substâncias prescritas por {{nome}} no mês {{month}} - {{year}}:</h2>
+  {% if cursor %}
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Substâncias</th>
+        </tr>
+      </thead>
+      <tbody>      
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p> Error: failed to retreive data from database!</p>
+  {% endif %}
+</body>
+</doctype>

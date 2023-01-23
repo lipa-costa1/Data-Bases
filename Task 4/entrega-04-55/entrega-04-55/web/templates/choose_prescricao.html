@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h3>Escolher o médico e o mês do ano</h3>
+        <form action="substancias/list" method="post">
+            <p>Médico: <select name="medico"></p>>
+            {% for record in cursor %}
+                <p><option value="{{record[0]}},{{record[1]}}">{{ record[0] }} - {{ record[1] }}</option>
+            {% endfor %}
+            </select>
+            <p>Ano e Mês:<input type="month" name="mes"required/>
+            <p><input type="submit" value="Submeter"/></p>
+        </form>
+    </body>
+</html>

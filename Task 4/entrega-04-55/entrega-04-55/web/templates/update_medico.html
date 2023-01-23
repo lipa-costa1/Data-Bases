@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <h3>Alterar informações para o médico com nº de cédula {{ params.get("num_cedula") }}</h3>
+        <p>Nota: Campos deixados em branco manterão o valor original</p>
+        <form action="update/confirm" method="post">
+            <p><input type="hidden" name="num_cedula" value="{{ params.get('num_cedula') }}"/></p>
+            <p>Novo nome: <input type="text" name="nome"/></p>
+            <p>Nova especialidade: <input type="text" name="especialidade"/></p>
+            <p><input type="submit" value="Submeter"/></p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h3>Inserir nova instituição</h3>
+        <form action="insert/confirm" method="post">
+            <p>Nome: <input type="text" name="nome" required/></p>
+            <p>Tipo: <select name="tipo">
+               <option value="farmacia">Farmácia</option>
+               <option value="laboratorio">Laboratório</option>
+               <option value="clinica">Clínica</option>
+               <option value="hospital">Hospital</option>
+               </select>
+            <p>Região, Concelho: <select name="regiao_concelho">
+               {% for record in cursor %}
+               <option value="{{record[0]}},{{record[1]}}">{{record[2]}}, {{record[3]}}</option>
+               {% endfor %}
+               </select>
+            <p><input type="submit" value="Submeter"/></p>
+        </form>
+    </body>
+</html>

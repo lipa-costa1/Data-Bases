@@ -1,0 +1,43 @@
+<html>
+<h1>Glicémia</h1><br>
+Nota: Apenas são apresentados os concelhos para os quais há registos do valor de glicémia.<br>
+<h2>Valor máximo de glicémia por concelho:</h2><br>
+<table border="2px">
+      <thead>
+        <tr>
+          <th>Concelho</th>
+          <th>Quantidade</th>
+          <th>Nº Doente</th>
+        </tr>
+      </thead>
+      <tbody>      
+        {% for record in max_glic %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+<h2>Valor mínimo de glicémia por concelho:</h2><br>
+<table border="2px">
+      <thead>
+        <tr>
+          <th>Concelho</th>
+          <th>Quantidade</th>
+          <th>Nº Doente</th>
+        </tr>
+      </thead>
+      <tbody>      
+        {% for record in min_glic %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</html>

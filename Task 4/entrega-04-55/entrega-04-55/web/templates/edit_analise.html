@@ -1,0 +1,51 @@
+<doctype html>
+<title>Lista de Análises</title>
+<body style="padding:20px">
+  {% if cursor %}
+    <h1>Lista de Análises</h1>
+    <a href="analise/insert">Inserir nova análise</a>
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Especialidade</th>
+          <th>Médico</th>
+          <th>Número do doente</th>
+          <th>Data</th>
+          <th>Data de registo</th>
+          <th>Grandeza</th>
+          <th>Quantidade</th>
+          <th>Instituição</th>
+          <th>Editar</th>
+          <th>Remover</th>
+        </tr>
+      </thead>
+      <tbody>      
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            {%if record[2] != None %}
+            <td>{{ record[2] }} - {{ record[3] }}</td>
+            <td>{{ record[4] }}</td>
+            <td>{{ record[5] }}</td>
+            {%else%}
+            <td></td>
+            <td></td>
+            <td></td>
+            {%endif%}
+            <td>{{ record[6] }}</td>
+            <td>{{ record[7] }}</td>
+            <td>{{ record[8] }}</td>
+            <td>{{ record[9] }}</td>
+            <td><a href="analise/update?num_analise={{ record[0] }}">Alterar Parâmetros</a></td>
+            <td><a href="analise/delete/confirm?num_analise={{ record[0] }}">Remover Análise</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+  {% endif %}
+</body>
+</doctype>

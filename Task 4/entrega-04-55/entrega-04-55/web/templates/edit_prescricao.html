@@ -1,0 +1,38 @@
+<doctype html>
+<title>Lista das prescrições</title>
+<body style="padding:20px">
+  {% if cursor %}
+    <h1>Lista das prescrições</h1>
+    <p><a href="prescricao/insert">Inserir nova prescrição</a>
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Médico</th>
+          <th>Número do doente</th>
+          <th>Data</th>
+          <th>Substância</th>
+          <th>Quantidade</th>
+          <th>Editar</th>
+          <th>Remover</th>
+        </tr>
+      </thead>
+      <tbody>      
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }} - {{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] }}</td>
+            <td>{{ record[4] }}</td>
+            <td>{{ record[5] }}</td>
+            <td><a href="prescricao/update?num_cedula={{ record[0] }}&num_doente={{ record[1] }}&data={{record[2]}}&substancia={{record[3]}}">Alterar informações</a></td>
+            <td><a href="prescricao/delete/confirm?num_cedula={{ record[0] }}&num_doente={{ record[1] }}&data={{record[2]}}&substancia={{record[3]}}">Remover prescrição</a></td>
+          </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+  {% endif %}
+</body>
+</doctype>

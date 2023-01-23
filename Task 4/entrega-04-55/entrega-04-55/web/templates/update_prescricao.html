@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <h3>Alterar informações para a prescrição {{ params.get("num_cedula") }}, {{ params.get("num_doente") }}, {{ params.get("data") }}, {{ params.get("substancia") }}</h3>
+        <form action="update/confirm" method="post">
+            <p><input type="hidden" name="num_cedula" value="{{ params.get('num_cedula') }}"/></p>
+            <p><input type="hidden" name="num_doente" value="{{ params.get('num_doente') }}"/></p>
+            <p><input type="hidden" name="data" value="{{ params.get('data') }}"/></p>
+            <p><input type="hidden" name="substancia" value="{{ params.get('substancia') }}"/></p>
+            <p>Nova quantidade: <input type="number" name="quant" required/></p>
+            <p><input type="submit" value="Submeter"/></p>
+        </form>
+    </body>
+</html>

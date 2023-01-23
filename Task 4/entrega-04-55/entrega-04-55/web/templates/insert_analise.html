@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <h3>Inserir nova análise</h3>
+        <form action="insert/confirm" method="post">
+            <p>Especialidade: <input type="text" name="especialidade" required/></p>
+            <p>Consulta:
+            <select name="consulta">
+            <option value="NULL,NULL,NULL">Sem Consulta</option>
+            {%for cons in consultas%}
+            <option value="{{cons[0]}},{{cons[2]}},{{cons[3]}}">{{cons[0]}} - {{cons[1]}}, {{cons[2]}}, {{cons[3]}}
+            {% endfor %}
+            </select></p>
+            <p>Grandeza: <input type="text" name="nome" required/></p>
+            <p>Quantidade: <input type="number" name="quant" required/></p>
+            <p>Instituição:
+            <select name="inst">
+            {% for inst in insts%}
+            <option value="{{inst[0]}}">{{inst[0]}}</option>
+            {% endfor %}
+            </select></p>
+            <p><input type="submit" value="Submeter"/></p>
+        </form>
+    </body>
+</html>

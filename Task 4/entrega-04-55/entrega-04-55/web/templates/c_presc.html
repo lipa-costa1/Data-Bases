@@ -1,0 +1,19 @@
+<html>
+	<h1>Registo de Venda em Farmácia Com Prescrição</h1>
+    <form action="c_presc/add" method="POST">
+        <p><label>Prescrição:</label>
+        <select name = "presc">
+            {% for presc in prescs%}
+            <option value="{{presc}}">{{presc}}</option>
+            {% endfor %}
+        </select></p>
+        <p><label>Preço:</label> <input type="number" step=0.01 name="preco" required> € </p>
+        <p><label>Instituição:</label>
+        <select name="inst">
+            {% for inst in insts%}
+            <option value = "{{inst[0]}}">{{inst[0]}}</option>
+            {% endfor %}
+        </select></p>
+        <p><input type="submit" value="Registar Venda"></p>
+    </form>
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <h3>Atualizar a análise nº {{num_analise}}</h3>
+        <p>Nota: Campos deixados em branco manterão o valor original</p>
+        <form action="update/confirm" method="post">
+            <input type="hidden" name="num_analise" value="{{num_analise}}">
+            <p>Especialidade: <input type="text" name="especialidade"/></p>
+            <p>Consulta:
+            <select name="consulta">
+            <option value=",,"></option>
+            <option value="NULL,NULL,NULL">Sem Consulta</option>
+            {%for cons in consultas%}
+            <option value="{{cons[0]}},{{cons[2]}},{{cons[3]}}">{{cons[0]}} - {{cons[1]}}, {{cons[2]}}, {{cons[3]}}
+            {% endfor %}
+            </select></p>
+            <p>Data de Registo: <input type="date" name="data_registo"/></p>
+            <p>Grandeza: <input type="text" name="nome"/></p>
+            <p>Quantidade: <input type="number" name="quant"/></p>
+            <p>Instituição:
+            <select name="inst">
+            <option value=""></option>
+            {% for inst in insts%}
+            <option value="{{inst[0]}}">{{inst[0]}}</option>
+            {% endfor %}
+            </select></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+    </body>
+</html>

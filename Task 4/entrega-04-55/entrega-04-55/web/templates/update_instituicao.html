@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <h3>Alterar informações para a instituição {{ params.get("nome") }}</h3>
+        <form action="update/confirm" method="post">
+            <input type="hidden" value="{{ params.get('nome') }}" name="old_name"/>
+            <p>Novo nome: <input type="text" name="new_name" required/>
+            <p><input type="submit" value="Submeter"/></p>
+        </form>
+    </body>
+</html>
